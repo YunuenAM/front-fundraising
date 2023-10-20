@@ -1,13 +1,6 @@
 body{
   margin: 0;
   padding: 0;
-  background-color: bisque;
+  background-color: antiquewhite;
 }
 
-.bg-pink{
-  background-color: pink;
-}
-
-.active {
-  text-decoration: underline;
-}

@@ -1,13 +1,9 @@
 body{
-    background-color: white;
+    background-color: lavender !important;
 }
 
 nav{
-    background-color: pink;
-}
-
-.bg.pink{
-    background-color: rgb(228, 35, 99) !important;
+    background-color: mediumaquamarine;
 }
 
 
@@ -20,3 +16,13 @@ nav{
     }
   }
   
+
+  .navbar__list-item {
+    background-color: aquamarine;
+    border: 1px solid #000; /* Agregar un borde alrededor de cada elemento del menú */
+    padding: 5px 10px; /* Agregar espacio alrededor del texto */
+    display: inline-block; /* Alinear los elementos en línea */
+    border-radius: 5px; /* Redondear los bordes del recuadro */
+  }
+
+

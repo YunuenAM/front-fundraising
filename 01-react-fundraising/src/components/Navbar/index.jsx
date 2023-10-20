@@ -17,7 +17,7 @@ const Navbar = () => {
             Save the Axolotl
           </NavLink>
         </li>
-        <li>
+        <li className='navbar__list-item'>
           <NavLink
             to='/'
             className={({ isActive }) => linkIsActive(isActive)}
@@ -25,7 +25,7 @@ const Navbar = () => {
             All
           </NavLink>
         </li>
-        <li>
+        <li className='navbar__list-item'>
           <NavLink
             to='/dashboard'
             className={({ isActive }) => linkIsActive(isActive)}
@@ -36,7 +36,7 @@ const Navbar = () => {
       </ul>
 
       <ul className='d-flex items-center list-unstyled list inline text-decoration-none gap-3'>
-        <li>
+        <li className='navbar__list-item'>
           <NavLink
             to='/login'
             className={({ isActive }) => linkIsActive(isActive)}
@@ -44,7 +44,7 @@ const Navbar = () => {
             Login
           </NavLink>
         </li>
-        <li>
+        <li className='navbar__list-item'>
           <NavLink
             to='/sign-up'
             className={({ isActive }) => linkIsActive(isActive)}
