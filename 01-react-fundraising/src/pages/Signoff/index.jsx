@@ -1,6 +1,10 @@
+import Layout from '../../components/Layout'
+
 const Signoff = () => {
   return (
-    <div>Signoff</div>
+    <Layout>
+      Sign Off
+    </Layout>
   )
 }
 export default Signoff
