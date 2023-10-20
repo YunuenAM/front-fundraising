@@ -1,0 +1,22 @@
+body{
+    background-color: white;
+}
+
+nav{
+    background-color: pink;
+}
+
+.bg.pink{
+    background-color: rgb(228, 35, 99) !important;
+}
+
+
+.navbar__item-link {
+    text-decoration: none; // Evitar subrayado por defecto
+    color: #000; // Color de texto por defecto
+  
+    &:hover {
+      text-decoration: underline; // Subrayado al posar el mouse
+    }
+  }
+  

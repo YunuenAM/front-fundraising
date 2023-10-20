@@ -4,6 +4,7 @@ import Dashboard from '../Dashboard'
 import Login from '../Login.jsx'
 import Notfound from '../Notfound'
 import Signup from '../Signup'
+import Navbar from '../../components/Navbar'
 import '@/App.css'
 
 const AppRoutes = () => {
@@ -22,6 +23,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <AppRoutes />
+      <Navbar />
     </BrowserRouter>
   )
 }
