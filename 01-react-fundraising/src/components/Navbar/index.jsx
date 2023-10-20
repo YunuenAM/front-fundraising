@@ -52,6 +52,14 @@ const Navbar = () => {
             Sign Up
           </NavLink>
         </li>
+        <li className='navbar__list-item'>
+          <NavLink
+            to='/signoff'
+            className={({ isActive }) => linkIsActive(isActive)}
+          >
+            Sign Off
+          </NavLink>
+        </li>
       </ul>
     </nav>
   )

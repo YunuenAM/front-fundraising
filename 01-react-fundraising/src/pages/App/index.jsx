@@ -5,6 +5,7 @@ import Login from '../Login.jsx'
 import Notfound from '../Notfound'
 import Signup from '../Signup'
 import Navbar from '../../components/Navbar'
+import Signoff from '../Signoff'
 import '@/App.css'
 
 const AppRoutes = () => {
@@ -13,7 +14,8 @@ const AppRoutes = () => {
     { path: '/dashboard', element: <Dashboard /> },
     { path: '/login', element: <Login /> },
     { path: '/*', element: <Notfound /> },
-    { path: '/sign-up', element: <Signup /> }
+    { path: '/sign-up', element: <Signup /> },
+    { path: '/signoff', element: <Signoff /> }
 
   ])
   return routes
