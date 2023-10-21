@@ -8,7 +8,6 @@ const Signup = () => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [role, setRole] = useState('')
 
   const handleNameChange = (e) => {
     setName(e.target.value)
@@ -26,7 +25,7 @@ const Signup = () => {
     e.preventDefault()
 
     // Valida los datos del formulario antes de enviarlos
-    if (!name || !email || !password || !role) {
+    if (!name || !email || !password) {
       console.error('Todos los campos son obligatorios.')
     }
 
