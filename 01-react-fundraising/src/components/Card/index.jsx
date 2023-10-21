@@ -26,40 +26,41 @@ const Card = () => {
       id: 3,
       imgSrc: axolotl3,
       title: 'Salamandria',
-      content: 'Content for Card 2'
+      content: "Let's rally together to support Salamandria, the precious axolotl! Salamandria represents the beauty and wonder of aquatic life, but these incredible creatures are endangered. Your donation can make a real impact, providing the care and conservation efforts needed to ensure Salamandria and her fellow axolotls thrive. Join us in safeguarding their future. Contribute today and be a hero for Salamandria and her species. Your support counts!😎💚#SaveSALAMANDRIA"
     },
     {
       id: 4,
       imgSrc: axolotl4,
       title: 'Gilly',
-      content: 'Content for Card 1'
+      content: 'Join our cause to support Gili, the courageous axolotl living in Xochimilco! Gili represents the incredible biodiversity in this unique ecosystem, but their habitat faces constant threats. With your donation, we can ensure that Gili and their fellow axolotls have a safe and healthy home in Xochimilco. Join our effort to conserve this unique species. Donate today and be part of the mission to protect Gili and their home in Xochimilco! Your support makes a difference.🙏🏽💜#SaveGILLY'
+
     },
     {
       id: 5,
       imgSrc: axolotl7,
       title: 'Amphie',
-      content: 'Content for Card 2'
+      content: 'Join the cause and help save Amphie, the charming axolotl! Your donation makes a difference. With your support, we can ensure a bright future for Amphie and their species. Be a donor and be part of the solution! Every contribution counts.🙌🏽🧡#SaveAMPHIE'
     },
     {
 
       id: 6,
       imgSrc: babyaxolotl2,
       title: 'Kiko',
-      content: 'Content for Card 2'
+      content: "Join the cause and become a donor to preserve Kiko, the amazing axolotl! Your generosity can make a difference in Kiko's conservation and their habitat. Be a hero for Kiko and their species! Donate today and secure a bright future for these charming aquatic animals. Every contribution matters.🙂🤍#SaveKIKO"
     },
     {
 
       id: 7,
       imgSrc: babyaxolotl,
       title: 'Quaxo',
-      content: 'Content for Card 2'
+      content: 'Help save the little axolotl, Quaxo, with your donation! Every contribution brings us one step closer to securing a safe future for this adorable baby axolotl. Join our cause and be a part of their story. Donate now and make a difference for Quaxo and their species! Your generosity matters.🫶🏽🤎#SaveQUAXO'
     },
     {
 
       id: 8,
       imgSrc: axolotl9,
       title: 'Marlowe',
-      content: 'Content for Card 2'
+      content: 'Your donation can make all the difference in saving Marlowe, the axolotl. Be a part of this rescue mission and help secure a bright future for Marlowe and their fellow axolotls. Your contribution is a vital step in their preservation. Donate now and be a hero for Marlowee!🙂🖤#SaveMARLOWE'
     }
 
   ]
