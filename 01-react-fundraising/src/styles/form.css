@@ -1,7 +1,30 @@
 .form-register {
     max-width: 330px;
     padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
    }
+
+   .form-signin {
+    max-width: 330px;
+    padding: 1rem;
+
+    display: flex;
+      justify-content: center;
+      align-items: center;
+    
+   }
+
+   .form-register img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .form-signin img {
+    max-width: 100%;
+    height: auto;
+  }
      
    .form-register .form-floating:focus-within {
     z-index: 2;
@@ -27,6 +50,7 @@
    
    .btn-pink{
        background-color: pink !important; 
+       
    }
      
 
@@ -56,4 +80,5 @@
     border-top-left-radius: 0;
     border-top-right-radius: 0;
      }
+   
    
