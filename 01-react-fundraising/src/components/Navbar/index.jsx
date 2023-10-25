@@ -2,66 +2,57 @@ import { NavLink } from 'react-router-dom'
 import './navbar.scss'
 
 const Navbar = () => {
-  const linkIsActive = (isActive) => {
-    return isActive ? 'navbar__item-link navbar__item-link--is-active' : 'navbar__item-link'
-  }
   return (
-    <nav className=' d-flex justify-content-between items-center top-0 z-10 w-full py-2 px-8 text-md'>
-      <ul className='d-flex items-center  list-unstyled list-inline text-black   gap-3'>
-        <li className='navbar__list-item'>
-          <NavLink
-            to='/'
-            className={({ isActive }) => linkIsActive(isActive)}
-
-          >
-            Save the Axolotl
-          </NavLink>
-        </li>
-        <li className='navbar__list-item'>
-          <NavLink
-            to='/'
-            className={({ isActive }) => linkIsActive(isActive)}
-          >
-            All
-          </NavLink>
-        </li>
-        <li className='navbar__list-item'>
-          <NavLink
-            to='/dashboard'
-            className={({ isActive }) => linkIsActive(isActive)}
-          >
-            Dashboard
-          </NavLink>
-        </li>
-      </ul>
-
-      <ul className='d-flex items-center list-unstyled list inline text-decoration-none gap-3'>
-        <li className='navbar__list-item'>
-          <NavLink
-            to='/login'
-            className={({ isActive }) => linkIsActive(isActive)}
-          >
-            Login
-          </NavLink>
-        </li>
-        <li className='navbar__list-item'>
-          <NavLink
-            to='/sign-up'
-            className={({ isActive }) => linkIsActive(isActive)}
-          >
-            Sign Up
-          </NavLink>
-        </li>
-        <li className='navbar__list-item'>
-          <NavLink
-            to='/signoff'
-            className={({ isActive }) => linkIsActive(isActive)}
-          >
-            Sign Off
-          </NavLink>
-        </li>
-      </ul>
+    <nav className='navbar navbar-expand-lg navbar-light bg-light'>
+      <div className='container'>
+        <NavLink to='/' className='navbar-brand'>
+          Save the Axolotl
+        </NavLink>
+        <button
+          className='navbar-toggler'
+          type='button'
+          data-bs-toggle='collapse'
+          data-bs-target='#navbarNav'
+          aria-controls='navbarNav'
+          aria-expanded='false'
+          aria-label='Toggle navigation'
+        >
+          <span className='navbar-toggler-icon' />
+        </button>
+        <div className='collapse navbar-collapse' id='navbarNav'>
+          <ul className='navbar-nav'>
+            <li className='nav-item'>
+              <NavLink to='/' exact className='nav-link' activeClassName='active'>
+                All
+              </NavLink>
+            </li>
+            <li className='nav-item'>
+              <NavLink to='/dashboard' className='nav-link' activeClassName='active'>
+                Dashboard
+              </NavLink>
+            </li>
+          </ul>
+          <ul className='navbar-nav ms-auto'>
+            <li className='nav-item'>
+              <NavLink to='/login' className='nav-link' activeClassName='active'>
+                Login
+              </NavLink>
+            </li>
+            <li className='nav-item'>
+              <NavLink to='/sign-up' className='nav-link' activeClassName='active'>
+                Sign Up
+              </NavLink>
+            </li>
+            <li className='nav-item'>
+              <NavLink to='/signoff' className='nav-link' activeClassName='active'>
+                Sign Off
+              </NavLink>
+            </li>
+          </ul>
+        </div>
+      </div>
     </nav>
   )
 }
+
 export default Navbar
