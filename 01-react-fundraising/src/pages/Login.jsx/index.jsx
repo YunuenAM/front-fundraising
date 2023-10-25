@@ -1,52 +1,31 @@
-import React, { useState } from 'react'
-import babyaxolotl from '@/img/babyaxolotl2.jpg'
-import '@/styles/form.css'
+import useForm from '@/hooks/useForm'
+import { useNavigate } from 'react-router-dom'
+import { loginUserService } from '@/services/userService'
+import { useAuthContext } from '@/hooks/useAuth'
 import Layout from '../../components/Layout'
-// import { postData } from '@/services/api.js'
+import babyaxolotl from '@/img/babyaxolotl.jpg'
+import '@/styles/form.css'
 
 const SignIn = () => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const { login } = useAuthContext()
+  const navigate = useNavigate()
 
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value)
-  }
-
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value)
-  }
-
-  async function handleSubmit (e) {
-    e.preventDefault()
-
-    // Valida los datos del formulario antes de enviarlos
-    if (!email || !password) {
-      console.error('Todos los campos son obligatorios.')
+  const sendData = async (data) => {
+    try {
+      const response = await loginUserService(data)
+      if (response.status === 200) {
+        login(response.data.token)
+        navigate('/dashboard')
+      }
+    } catch (error) {
+      console.log('Something went wrong', error.message)
     }
-
-    // // Crea un objeto con los datos del formulario
-    // const formData = {
-
-    //   email,
-    //   password,
-
-    // }
-
-    // try {
-    // // Llama a la función postData para enviar los datos al backend
-    //   const response = await postData('api/users/', formData)
-
-    //   // Maneja la respuesta del backend como desees
-    //   console.log('Respuesta del backend:', response)
-
-    //   // Limpia los campos del formulario después del envío exitoso
-    //   setEmail('')
-    //   setPassword('')
-    // } catch (error) {
-    //   console.error('Error al enviar datos al backend:', error)
-    // // Maneja el error de alguna manera (p. ej., muestra un mensaje de error al usuario)
-    // }
   }
+
+  const { input, handleSubmit, handleInputChange } = useForm(sendData, {
+    email: '',
+    password: ''
+  })
 
   return (
     <Layout>
@@ -61,8 +40,8 @@ const SignIn = () => {
               className='form-control'
               id='floatingInput'
               placeholder='name@example.com'
-              value={email}
-              onChange={handleEmailChange}
+              value={input.email}
+              onChange={handleInputChange}
             />
             <label htmlFor='floatingInput'>Email address</label>
           </div>
@@ -73,8 +52,8 @@ const SignIn = () => {
               className='form-control'
               id='floatingPassword'
               placeholder='Password'
-              value={password}
-              onChange={handlePasswordChange}
+              value={input.password}
+              onChange={handleInputChange}
             />
             <label htmlFor='floatingPassword'>Password</label>
           </div>
