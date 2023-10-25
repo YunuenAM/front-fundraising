@@ -7,7 +7,12 @@ import '@/styles/form.css'
 const Home = () => {
   return (
     <Layout>
-      <img className=' mx-auto d-block  rounded-circle p-1 mt-4 img-fluid  responsive-image ' srcSet={axolotl} alt='axolotl image' style={{ maxWidth: '50rem' }} />
+      <img
+        className=' mx-auto d-block  rounded-circle p-1 mt-4 img-fluid  responsive-image '
+        srcSet={axolotl}
+        alt='axolotl image'
+        style={{ maxWidth: '100%', height: 'auto' }}
+      />
       <Caption />
       <Card />
 
