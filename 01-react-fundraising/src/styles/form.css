@@ -85,6 +85,20 @@
       max-width: 100%;
       height: auto;
     }
+
+    .donation-buttons {
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .donation-buttons button {
+      margin: 5px; /* Ajusta el valor de acuerdo a tus preferencias de espacio */
+    }
+
+    .center-label {
+      text-align: center;
+    }
+    
     
    
    
