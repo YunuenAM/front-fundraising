@@ -1,4 +1,5 @@
 import { useRoutes, BrowserRouter } from 'react-router-dom'
+import { AuthProvider } from '@/context/AuthContext'
 import Home from '../Home'
 import Dashboard from '../Dashboard'
 import Login from '../Login.jsx'
@@ -23,10 +24,13 @@ const AppRoutes = () => {
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Navbar />
-      <AppRoutes />
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <Navbar />
+        <AppRoutes />
+      </BrowserRouter>
+    </AuthProvider>
+
   )
 }
 export default App

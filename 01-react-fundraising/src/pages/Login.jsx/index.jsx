@@ -40,10 +40,8 @@ const SignIn = () => {
     //   console.log('Respuesta del backend:', response)
 
     //   // Limpia los campos del formulario después del envío exitoso
-    //   setName('')
     //   setEmail('')
     //   setPassword('')
-    //   setRole('')
     // } catch (error) {
     //   console.error('Error al enviar datos al backend:', error)
     // // Maneja el error de alguna manera (p. ej., muestra un mensaje de error al usuario)
