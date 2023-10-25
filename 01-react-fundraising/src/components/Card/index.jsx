@@ -66,10 +66,10 @@ const Card = () => {
   ]
 
   return (
-    <div className='row'>
+    <div className='row justify-content-center '>
       {cardData.map((card) => (
         <div className='col-md-3' key={card.id}>
-          <div className='card' style={{ width: '18rem', margin: '50px 0', height: '90%' }}>
+          <div className='card mx-auto ' style={{ width: '18rem', margin: '50px 65px', height: '90%' }}>
             <img src={card.imgSrc} className='card-img-top img-fluid ' alt={card.title} />
             <div className='card-body'>
               <h5 className='card-title'>{card.title}</h5>
