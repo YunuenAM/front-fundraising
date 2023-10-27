@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axolotl2 from '@/img/axolotl2.jpg'
-// import { postData } from '@/services/api.js'
+import { postData } from '@/services/api.js'
 import '@/styles/form.css'
 import Layout from '../../components/Layout'
 
@@ -29,30 +29,29 @@ const Signup = () => {
       console.error('Todos los campos son obligatorios.')
     }
 
-    // // Crea un objeto con los datos del formulario
-    // const formData = {
-    //   name,
-    //   email,
-    //   password,
-    //   role
-    // }
+    // Crea un objeto con los datos del formulario
+    const formData = {
+      name,
+      email,
+      password
 
-    // try {
-    // // Llama a la función postData para enviar los datos al backend
-    //   const response = await postData('api/users/', formData)
+    }
 
-    //   // Maneja la respuesta del backend como desees
-    //   console.log('Respuesta del backend:', response)
+    try {
+    // Llama a la función postData para enviar los datos al backend
+      const response = await postData('api/users/', formData)
 
-    //   // Limpia los campos del formulario después del envío exitoso
-    //   setName('')
-    //   setEmail('')
-    //   setPassword('')
-    //   setRole('')
-    // } catch (error) {
-    //   console.error('Error al enviar datos al backend:', error)
-    // // Maneja el error de alguna manera (p. ej., muestra un mensaje de error al usuario)
-    // }
+      // Maneja la respuesta del backend como desees
+      console.log('Respuesta del backend:', response)
+
+      // Limpia los campos del formulario después del envío exitoso
+      setName('')
+      setEmail('')
+      setPassword('')
+    } catch (error) {
+      console.error('Error al enviar datos al backend:', error)
+    // Maneja el error de alguna manera (p. ej., muestra un mensaje de error al usuario)
+    }
   }
 
   return (
