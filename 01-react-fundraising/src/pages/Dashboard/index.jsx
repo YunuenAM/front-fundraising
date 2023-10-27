@@ -1,9 +1,14 @@
 import Layout from '../../components/Layout'
+import { postDonation } from '@/services/donationServices'
+import { useNavigate } from 'react-router-dom'
+import { useAuthContext } from '@/hooks/useAuth'
 import React, { useState } from 'react'
 import axolotl4 from '@/img/axolotl4.jpg'
 import '@/styles/form.css'
 
 function DonationForm () {
+  const { login } = useAuthContext()
+  const navigate = useNavigate()
   const [donationAmount, setDonationAmount] = useState(1)
 
   const handleDonationChange = (e) => {
@@ -15,9 +20,22 @@ function DonationForm () {
     setDonationAmount(amount)
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
     // Aquí puedes enviar el donativo a través de una API o realizar la lógica que prefieras.
+    try {
+      const response = await postDonation({ amount: donationAmount })
+
+      if (response.status === 200) {
+        login(response.data.token)
+        navigate('/dashboard')
+        console.log('Donation submitted successfully')
+      } else {
+        console.error('Something went wrong')
+      }
+    } catch (error) {
+      console.log('Something went wrong', error)
+    }
   }
 
   return (
@@ -34,6 +52,7 @@ function DonationForm () {
                 className='form-control'
                 id='donationAmount'
                 placeholder='1'
+                name='donationAmount'
                 value={donationAmount}
                 onChange={handleDonationChange}
                 min='1'
@@ -58,6 +77,7 @@ function DonationForm () {
               min='1'
               max='10000'
               step='1'
+              name='donationAmount'
               value={donationAmount}
               onChange={handleDonationChange}
             />

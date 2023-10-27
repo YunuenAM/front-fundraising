@@ -15,9 +15,9 @@ const Caption = () => {
       <p>The Mexican axolotl, an iconic and endangered species, needs our help more than ever. These astonishing amphibians, native to Mexico, are on the brink of extinction due to the loss of their natural habitat, water pollution, and the proliferation of invasive species. However, there is still hope. Your donation can make a difference by supporting conservation efforts and research aimed at protecting this unique and fascinating species. Every contribution brings us one step closer to ensuring that future generations can enjoy the natural wonder that is the Mexican axolotl. Join the cause and donate today to save this gem of Mexican biodiversity!</p>
 
       <div className='text-center'>
-        <Link to='/dashboard'> {/* Redirige al usuario a /dashboard */}
+        <Link to='/login'> {/* Redirige al usuario a /dashboard */}
           <button className='btn btn-warning'>
-            Donate Now
+            Please log in to make your donation
           </button>
         </Link>
       </div>
