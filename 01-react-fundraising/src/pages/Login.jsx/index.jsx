@@ -40,6 +40,7 @@ const SignIn = () => {
               className='form-control'
               id='floatingInput'
               placeholder='name@example.com'
+              name='email'
               value={input.email}
               onChange={handleInputChange}
             />
@@ -52,6 +53,7 @@ const SignIn = () => {
               className='form-control'
               id='floatingPassword'
               placeholder='Password'
+              name='password'
               value={input.password}
               onChange={handleInputChange}
             />
