@@ -1,40 +1,37 @@
+import React, { useState } from 'react'
 import Layout from '../../components/Layout'
 import { postDonation } from '@/services/donationServices'
 import { useNavigate } from 'react-router-dom'
-import { useAuthContext } from '@/hooks/useAuth'
-import React, { useState } from 'react'
 import axolotl4 from '@/img/axolotl4.jpg'
 import '@/styles/form.css'
 
 function DonationForm () {
-  const { login } = useAuthContext()
   const navigate = useNavigate()
-  const [donationAmount, setDonationAmount] = useState(1)
+  const [amount, setAmount] = useState(1)
 
   const handleDonationChange = (e) => {
     const amount = parseInt(e.target.value, 10)
-    setDonationAmount(amount)
+    setAmount(amount)
   }
 
   const handleButtonClick = (amount) => {
-    setDonationAmount(amount)
+    setAmount(amount)
   }
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    // Aquí puedes enviar el donativo a través de una API o realizar la lógica que prefieras.
+
     try {
-      const response = await postDonation({ amount: donationAmount })
+      const response = await postDonation({ amount })
 
       if (response.status === 200) {
-        login(response.data.token)
         navigate('/dashboard')
         console.log('Donation submitted successfully')
       } else {
         console.error('Something went wrong')
       }
     } catch (error) {
-      console.log('Something went wrong', error)
+      console.error('An error occurred:', error)
     }
   }
 
@@ -50,16 +47,16 @@ function DonationForm () {
               <input
                 type='number'
                 className='form-control'
-                id='donationAmount'
+                id='amount'
                 placeholder='1'
-                name='donationAmount'
-                value={donationAmount}
+                name='amount'
+                value={amount}
                 onChange={handleDonationChange}
                 min='1'
                 max='10000'
               />
               <div className='center-label text-light '>
-                <label htmlFor='donationAmount'>Amount</label>
+                <label htmlFor='amount'>Amount</label>
               </div>
 
             </div>
@@ -77,8 +74,8 @@ function DonationForm () {
               min='1'
               max='10000'
               step='1'
-              name='donationAmount'
-              value={donationAmount}
+              name='amount'
+              value={amount}
               onChange={handleDonationChange}
             />
 
@@ -87,8 +84,8 @@ function DonationForm () {
               <div
                 className='progress-bar'
                 role='progressbar'
-                style={{ width: (donationAmount / 10000) * 100 + '%' }}
-                aria-valuenow={donationAmount}
+                style={{ width: (amount / 10000) * 100 + '%' }}
+                aria-valuenow={amount}
                 aria-valuemin='1'
                 aria-valuemax='10000'
               />
