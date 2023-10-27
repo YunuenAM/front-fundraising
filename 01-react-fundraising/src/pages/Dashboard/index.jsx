@@ -14,13 +14,11 @@ function DonationForm () {
     setAmount(amount)
   }
 
-  const handleButtonClick = (amount) => {
-    setAmount(amount)
+  const handleButtonClick = (newAmount) => {
+    setAmount(newAmount)
   }
 
-  const handleSubmit = async (event) => {
-    event.preventDefault()
-
+  const handleDonateClick = async () => {
     try {
       const response = await postDonation({ amount })
 
@@ -33,6 +31,9 @@ function DonationForm () {
     } catch (error) {
       console.error('An error occurred:', error)
     }
+  }
+  const handleSubmit = async (event) => {
+    event.preventDefault()
   }
 
   return (
@@ -69,16 +70,6 @@ function DonationForm () {
               <button className='btn btn-primary' onClick={() => handleButtonClick(10000)}>10000 USD</button>
             </div>
 
-            <input
-              type='range'
-              min='1'
-              max='10000'
-              step='1'
-              name='amount'
-              value={amount}
-              onChange={handleDonationChange}
-            />
-
             {/* Barra de progreso */}
             <div className='progress'>
               <div
@@ -91,7 +82,7 @@ function DonationForm () {
               />
             </div>
 
-            <button className='btn btn-pink w-100 py-2' type='submit'>Donate</button>
+            <button className='btn btn-pink w-100 py-2' type='button' onClick={handleDonateClick}>Donate</button>
             <p className='mt-5 mb-3 text-body-secondary'>© 2023</p>
           </div>
         </form>
