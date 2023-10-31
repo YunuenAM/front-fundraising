@@ -1,11 +1,13 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Layout from '../../components/Layout'
 import { postDonation } from '@/services/donationServices'
 import { useNavigate } from 'react-router-dom'
+import { AuthContext } from '@/context/AuthContext'
 import axolotl4 from '@/img/axolotl4.jpg'
 import '@/styles/form.css'
 
 function DonationForm () {
+  const { login } = useContext(AuthContext)
   const navigate = useNavigate()
   const [amount, setAmount] = useState(1)
 
@@ -19,8 +21,12 @@ function DonationForm () {
   }
 
   const handleDonateClick = async () => {
+    if (isNaN(amount) || amount < 1) {
+      console.error('Please enter a valid donation amount')
+      return
+    }
     try {
-      const response = await postDonation({ amount })
+      const response = await postDonation({ amount, token: login.token })
 
       if (response.status === 200) {
         navigate('/dashboard')
