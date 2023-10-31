@@ -1,13 +1,11 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import Layout from '../../components/Layout'
 import { postDonation } from '@/services/donationServices'
 import { useNavigate } from 'react-router-dom'
-import { AuthContext } from '@/context/AuthContext'
 import axolotl4 from '@/img/axolotl4.jpg'
 import '@/styles/form.css'
 
 function DonationForm () {
-  const { login } = useContext(AuthContext)
   const navigate = useNavigate()
   const [amount, setAmount] = useState(1)
 
@@ -19,25 +17,35 @@ function DonationForm () {
   const handleButtonClick = (newAmount) => {
     setAmount(newAmount)
   }
-
   const handleDonateClick = async () => {
     if (isNaN(amount) || amount < 1) {
       console.error('Please enter a valid donation amount')
       return
     }
-    try {
-      const response = await postDonation({ amount, token: login.token })
 
-      if (response.status === 200) {
-        navigate('/dashboard')
-        console.log('Donation submitted successfully')
+    const formattedData = `amount=${amount}`
+    const token = localStorage.getItem('token')
+    console.log('token 1', token)
+    // Format the data as "amount=number"
+
+    try {
+      const response = await postDonation(formattedData, token)
+
+      if (response) {
+        if (response.status === 200) {
+          navigate('/dashboard')
+          console.log('Donation submitted successfully')
+        } else {
+          console.error('Error: Donation request failed with status ' + response.status)
+        }
       } else {
-        console.error('Something went wrong')
+        console.error('Error: No response received from the server')
       }
     } catch (error) {
       console.error('An error occurred:', error)
     }
   }
+
   const handleSubmit = async (event) => {
     event.preventDefault()
   }
