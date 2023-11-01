@@ -1,5 +1,6 @@
 import Caption from '../../components/Caption'
 import Card from '../../components/Card'
+import DonorWall from '../../components/DonorWall/DonorWall'
 import Layout from '../../components/Layout'
 import axolotl from '@/img/axolotl.jpg'
 import '@/styles/form.css'
@@ -15,6 +16,7 @@ const Home = () => {
       />
       <Caption />
       <Card />
+      <DonorWall />
 
     </Layout>
   )

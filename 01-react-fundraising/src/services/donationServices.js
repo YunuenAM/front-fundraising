@@ -13,8 +13,6 @@ const postDonation = async (donationData, token) => {
       Authorization: `Bearer ${token}`
     }
   }
-  console.log(donationData)
-  console.log(config)
   try {
     const response = await axios.post(BASE_URL, donationData, config)
     return response.data
@@ -23,11 +21,18 @@ const postDonation = async (donationData, token) => {
   }
 }
 
-// Service to get the user and how much they've donated
-// const getAllDonations = () => axios.get(`${BASE_URL}/alldonations`)
-
+const getAllDonations = async () => {
+  try {
+    const response = await axios.get(`${BASE_URL}/alldonations`)
+    return response // Return the entire response object
+  } catch (error) {
+    console.error('Error getting donations:', error)
+    throw error // You can choose to handle the error at a higher level if needed
+  }
+}
 export {
   // getTotalDonations,
-  postDonation
+  postDonation,
+  getAllDonations
 //
 }
