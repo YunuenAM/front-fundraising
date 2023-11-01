@@ -6,7 +6,8 @@
     gap: 20px; // Add some spacing between grid items
   
     .donor-card {
-      border: 1px solid #ccc;
+      border: 1px solid #e7d9d9;
+      background-color: mediumturquoise;
       padding: 10px;
       border-radius: 5px;
       box-shadow: 0 0 5px rgba(145, 111, 111, 0.1);
@@ -22,7 +23,7 @@
       }
   
       p {
-        margin: 5px 0;
+        margin: 10px 0;
       }
     }
   }

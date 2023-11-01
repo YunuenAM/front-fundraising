@@ -15,6 +15,7 @@ const DonorWall = () => {
   }, [])
 
   return (
+
     <div className='donor-wall'>
       {donors.map((donor) => (
         <DonorCard key={donor.id} donor={donor} />

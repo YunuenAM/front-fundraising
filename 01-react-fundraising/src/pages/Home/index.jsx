@@ -4,6 +4,7 @@ import DonorWall from '../../components/DonorWall/Index'
 import Layout from '../../components/Layout'
 import axolotl from '@/img/axolotl.jpg'
 import '@/styles/form.css'
+import GoalDonations from '../../components/GoalDonations'
 
 const Home = () => {
   return (
@@ -16,6 +17,8 @@ const Home = () => {
       />
       <Caption />
       <Card />
+
+      <GoalDonations />
       <DonorWall />
 
     </Layout>
