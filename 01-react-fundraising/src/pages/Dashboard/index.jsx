@@ -8,10 +8,16 @@ import '@/styles/form.css'
 function DonationForm () {
   const navigate = useNavigate()
   const [amount, setAmount] = useState(1)
+  const [comment, setComment] = useState('')
 
   const handleDonationChange = (e) => {
     const amount = parseInt(e.target.value, 10)
     setAmount(amount)
+  }
+
+  const handleCommentChange = (e) => {
+    const comment = e.target.value
+    setComment(comment)
   }
 
   const handleButtonClick = (newAmount) => {
@@ -23,13 +29,17 @@ function DonationForm () {
       return
     }
 
-    const formattedData = `amount=${amount}`
+    const donationData = {
+      amount,
+      comment
+    }
+
     const token = localStorage.getItem('token')
     console.log('token 1', token)
     // Format the data as "amount=number"
 
     try {
-      const response = await postDonation(formattedData, token)
+      const response = await postDonation(donationData, token)
 
       if (response) {
         if (response.status === 200) {
@@ -82,6 +92,18 @@ function DonationForm () {
               <button className='btn btn-primary' onClick={() => handleButtonClick(100)}>100 USD</button>
               <button className='btn btn-primary' onClick={() => handleButtonClick(1000)}>1000 USD</button>
               <button className='btn btn-primary' onClick={() => handleButtonClick(10000)}>10000 USD</button>
+            </div>
+
+            <div className='form-floating'>
+              <input
+                type='text'
+                className='form-control'
+                id='comment'
+                placeholder='comment'
+                name='comment'
+                value={comment}
+                onChange={handleCommentChange}
+              />
             </div>
 
             {/* Barra de progreso */}

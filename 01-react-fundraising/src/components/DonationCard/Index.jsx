@@ -7,7 +7,7 @@ const DonorCard = ({ donor }) => {
     <div className='donor-card'>
       <FontAwesomeIcon icon={faUser} size='2x' /> {/* Use the FontAwesome icon */}
       <h3>{donor.user.name}</h3>
-      <p>{donor.message}</p>
+      <p>{donor.comment}</p>
       <p>{donor.amount} USD </p>
     </div>
   )
