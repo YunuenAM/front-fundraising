@@ -6,12 +6,27 @@ import './donorwall.scss'
 const DonorWall = () => {
   const [donors, setDonors] = useState([])
 
-  useEffect(() => {
+  const fetchDonations = () => {
     getAllDonations()
       .then((response) => {
         setDonors(response.data)
       })
       .catch((error) => console.error(error))
+  }
+
+  useEffect(() => {
+    // Fetch data initially when the component mounts
+    fetchDonations()
+
+    // Poll for updates every N seconds (e.g., every 60 seconds)
+    const updateInterval = 10000 // 60 seconds in milliseconds
+
+    const intervalId = setInterval(fetchDonations, updateInterval)
+
+    // Cleanup the interval when the component unmounts
+    return () => {
+      clearInterval(intervalId)
+    }
   }, [])
 
   return (
