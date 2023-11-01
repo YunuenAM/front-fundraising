@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { getAllDonations } from '../../services/donationServices'
-import DonorCard from '../DonationCard/DonationCard'
+import DonorCard from '../DonationCard/Index'
+import './donorwall.scss'
 
 const DonorWall = () => {
   const [donors, setDonors] = useState([])

@@ -1,0 +1,29 @@
+// DonorWall.scss
+
+.donor-wall {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); // Create columns that are at least 300px wide
+    gap: 20px; // Add some spacing between grid items
+  
+    .donor-card {
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(145, 111, 111, 0.1);
+  
+      img {
+        max-width: 100%;
+        border-radius: 50%;
+      }
+  
+      h3 {
+        font-size: 1.2rem;
+        margin: 10px 0;
+      }
+  
+      p {
+        margin: 5px 0;
+      }
+    }
+  }
+  

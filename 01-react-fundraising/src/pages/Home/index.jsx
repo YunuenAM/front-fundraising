@@ -1,6 +1,6 @@
 import Caption from '../../components/Caption'
 import Card from '../../components/Card'
-import DonorWall from '../../components/DonorWall/DonorWall'
+import DonorWall from '../../components/DonorWall/Index'
 import Layout from '../../components/Layout'
 import axolotl from '@/img/axolotl.jpg'
 import '@/styles/form.css'
