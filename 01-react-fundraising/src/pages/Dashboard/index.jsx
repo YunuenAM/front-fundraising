@@ -84,6 +84,18 @@ function DonationForm () {
                 <label htmlFor='amount'>Amount</label>
               </div>
 
+              <div>
+                <input
+                  type='text'
+                  className='form-control'
+                  id='comment'
+                  placeholder='comment'
+                  name='comment'
+                  value={comment}
+                  onChange={handleCommentChange}
+                />
+              </div>
+
             </div>
 
             <div className='donation-buttons'>
@@ -92,18 +104,6 @@ function DonationForm () {
               <button className='btn btn-primary' onClick={() => handleButtonClick(100)}>100 USD</button>
               <button className='btn btn-primary' onClick={() => handleButtonClick(1000)}>1000 USD</button>
               <button className='btn btn-primary' onClick={() => handleButtonClick(10000)}>10000 USD</button>
-            </div>
-
-            <div className='form-floating'>
-              <input
-                type='text'
-                className='form-control'
-                id='comment'
-                placeholder='comment'
-                name='comment'
-                value={comment}
-                onChange={handleCommentChange}
-              />
             </div>
 
             {/* Barra de progreso */}
