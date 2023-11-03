@@ -12,7 +12,8 @@ const GoalDonations = () => {
           throw new Error('Network response was not ok')
         }
         const data = await response.json()
-        setDonations(data) // Update the donations state
+        const totaldonation = data.totalDonations
+        setDonations(totaldonation) // Update the donations state
       } catch (error) {
         console.error('Something went wrong', error)
       }
@@ -40,7 +41,7 @@ const GoalDonations = () => {
             We need {goal - donations} more donations
           </div>
         </div>
-        <h2>Thank you for your support!</h2>
+        <h2 className='text-light'>Thank you for your support!</h2>
       </div>
     )
   }
