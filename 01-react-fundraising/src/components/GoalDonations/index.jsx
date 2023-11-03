@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import './goalDonations.scss'
 
 const GoalDonations = () => {
   const [donations, setDonations] = useState([])
@@ -42,12 +43,13 @@ const GoalDonations = () => {
             id='progress-bar'
             className='progress-bar bg-success rounded-2'
             role='progressbar'
-            style={{ width: `${clampedPercentage}%` }}
+            style={{ color: 'black', width: `${clampedPercentage}%` }}
+
           >
-            We need {goal - donations} more donations
+            <span style={{ color: 'red' }}> {goal - donations} </span>
           </div>
         </div>
-        <h2 className='text-light'>Thank you for your support!</h2>
+        <h2>Thank you for your support!</h2>
       </div>
     )
   }
