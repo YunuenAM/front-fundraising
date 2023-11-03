@@ -4,23 +4,29 @@ const GoalDonations = () => {
   const [donations, setDonations] = useState([])
   const [goal] = useState(1000000)
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('https://perfect-erin-goldfish.cyclic.app/api/donations/')
-        if (!response.ok) {
-          throw new Error('Network response was not ok')
-        }
-        const data = await response.json()
-        const totaldonation = data.totalDonations
-        setDonations(totaldonation) // Update the donations state
-      } catch (error) {
-        console.error('Something went wrong', error)
+  const fetchData = async () => {
+    try {
+      const response = await fetch('https://perfect-erin-goldfish.cyclic.app/api/donations/')
+      if (!response.ok) {
+        throw new Error('Network response was not ok')
       }
+      const data = await response.json()
+      const totaldonation = data.totalDonations
+      setDonations(totaldonation) // Update the donations state
+    } catch (error) {
+      console.error('Something went wrong', error)
     }
+  }
 
-    fetchData()
-  }, []) // Provide an empty dependency array to run the effect only once
+  useEffect(() => {
+    fetchData() // Initial fetch when the component mounts
+
+    // Set up an interval to fetch data every 10 seconds
+    const interval = setInterval(fetchData, 10000)
+
+    // Cleanup the interval when the component unmounts
+    return () => clearInterval(interval)
+  }, [])
 
   const updateProgress = () => {
     const percentage = (donations / goal) * 100
