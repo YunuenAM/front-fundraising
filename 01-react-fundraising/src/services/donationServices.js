@@ -4,7 +4,7 @@ import axios from 'axios'
 const BASE_URL = 'https://perfect-erin-goldfish.cyclic.app/api/donations/'
 
 // Service to get the total amount donated
-// const getTotalDonations = () => axios.get(`${BASE_URL}`)
+const getTotalDonations = () => axios.get(`${BASE_URL}`)
 
 // Service to post a donation
 const postDonation = async (donationData, token) => {
@@ -31,7 +31,7 @@ const getAllDonations = async () => {
   }
 }
 export {
-  // getTotalDonations,
+  getTotalDonations,
   postDonation,
   getAllDonations
 //

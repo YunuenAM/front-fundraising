@@ -19,7 +19,7 @@ const DonorWall = () => {
     fetchDonations()
 
     // Poll for updates every N seconds (e.g., every 60 seconds)
-    const updateInterval = 10000 // 60 seconds in milliseconds
+    const updateInterval = 10000 // 10 seconds in milliseconds
 
     const intervalId = setInterval(fetchDonations, updateInterval)
 
