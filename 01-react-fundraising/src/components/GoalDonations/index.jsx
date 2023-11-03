@@ -1,35 +1,34 @@
 import React, { useState, useEffect } from 'react'
 
 const GoalDonations = () => {
-  const [setDonation] = useState([])
+  const [donations, setDonations] = useState([])
   const [goal] = useState(1000000)
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('https://perfect-erin-goldfish.cyclic.app/api/getAllDonations/')
+        const response = await fetch('https://perfect-erin-goldfish.cyclic.app/api/donations/')
         if (!response.ok) {
           throw new Error('Network response was not ok')
         }
         const data = await response.json()
-        const totalDonations = data.reduce((sum, donation) => sum + donation.amount, 0)
-        setDonation(data)
-        updateProgress(totalDonations)
+        setDonations(data) // Update the donations state
       } catch (error) {
         console.error('Something went wrong', error)
       }
     }
-    fetchData()
-  })
 
-  const updateProgress = (totalDonations) => {
-    const percentage = (totalDonations / goal) * 100
+    fetchData()
+  }, []) // Provide an empty dependency array to run the effect only once
+
+  const updateProgress = () => {
+    const percentage = (donations / goal) * 100
 
     const clampedPercentage = Math.min(100, Math.max(0, percentage))
 
     return (
       <div>
-        <h2 className='text-success' />
+        <h2 className='text-success'>{clampedPercentage}%</h2>
 
         <div className='progress' style={{ width: '100%', height: '40px' }}>
           <div
@@ -38,7 +37,7 @@ const GoalDonations = () => {
             role='progressbar'
             style={{ width: `${clampedPercentage}%` }}
           >
-            We need {goal} donations
+            We need {goal - donations} more donations
           </div>
         </div>
         <h2>Thank you for your support!</h2>
@@ -46,7 +45,11 @@ const GoalDonations = () => {
     )
   }
 
-  return updateProgress // Return the result of the updateProgress function
+  return (
+    <div>
+      {updateProgress()} {/* Call the updateProgress function and render its result */}
+    </div>
+  )
 }
 
 export default GoalDonations
