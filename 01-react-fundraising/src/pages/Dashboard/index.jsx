@@ -68,12 +68,12 @@ function DonationForm () {
             <img className='mb-4 mt-5 align-items-center rounded-circle' src={axolotl4} alt='' width='200' height='200' />
             <h1 className='h3 mb-3 fw-normal text-warning '>Please Donate</h1>
 
-            <div className='form-floating'>
+            <div>
               <input
                 type='number'
                 className='form-control'
                 id='amount'
-                placeholder='1'
+                placeholder='Donation Amount'
                 name='amount'
                 value={amount}
                 onChange={handleDonationChange}
@@ -89,21 +89,13 @@ function DonationForm () {
                   type='text'
                   className='form-control'
                   id='comment'
-                  placeholder='comment'
+                  placeholder='Comment'
                   name='comment'
                   value={comment}
                   onChange={handleCommentChange}
                 />
               </div>
 
-            </div>
-
-            <div className='donation-buttons'>
-              <button className='btn btn-primary' onClick={() => handleButtonClick(1)}>1 USD</button>
-              <button className='btn btn-primary' onClick={() => handleButtonClick(10)}>10 USD</button>
-              <button className='btn btn-primary' onClick={() => handleButtonClick(100)}>100 USD</button>
-              <button className='btn btn-primary' onClick={() => handleButtonClick(1000)}>1000 USD</button>
-              <button className='btn btn-primary' onClick={() => handleButtonClick(10000)}>10000 USD</button>
             </div>
 
             {/* Barra de progreso */}
@@ -116,6 +108,14 @@ function DonationForm () {
                 aria-valuemin='1'
                 aria-valuemax='10000'
               />
+            </div>
+
+            <div className='donation-buttons'>
+              <button className='btn btn-primary' onClick={() => handleButtonClick(1)}>1 USD</button>
+              <button className='btn btn-primary' onClick={() => handleButtonClick(10)}>10 USD</button>
+              <button className='btn btn-primary' onClick={() => handleButtonClick(100)}>100 USD</button>
+              <button className='btn btn-primary' onClick={() => handleButtonClick(1000)}>1000 USD</button>
+              <button className='btn btn-primary' onClick={() => handleButtonClick(10000)}>10000 USD</button>
             </div>
 
             <button className='btn btn-pink w-100 py-2' type='button' onClick={handleDonateClick}>Donate</button>
