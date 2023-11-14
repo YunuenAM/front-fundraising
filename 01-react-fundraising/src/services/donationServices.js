@@ -1,7 +1,7 @@
 import axios from 'axios'
 // import { config } from 'dotenv'
 
-const BASE_URL = 'https://perfect-erin-goldfish.cyclic.app/api/donations/'
+const BASE_URL = 'http://54.84.173.165/api/donations/'
 
 // Service to get the total amount donated
 const getTotalDonations = () => axios.get(`${BASE_URL}`)

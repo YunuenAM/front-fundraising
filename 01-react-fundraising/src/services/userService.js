@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const BASE_URL = 'https://perfect-erin-goldfish.cyclic.app/api/users'
+const BASE_URL = 'http://54.84.173.165/api/users'
 
 // const registerUserService = (data) => axios.post(`${BASE_URL}/register`, data)
 const loginUserService = (data) => axios.post(`${BASE_URL}/login`, data)
