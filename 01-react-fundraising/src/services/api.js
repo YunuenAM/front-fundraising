@@ -1,4 +1,4 @@
-const BASE_URL = 'http://54.84.173.165'
+const BASE_URL = 'https://perfect-erin-goldfish.cyclic.app/'
 
 async function postData (endpoint, data) {
   console.log(data)
