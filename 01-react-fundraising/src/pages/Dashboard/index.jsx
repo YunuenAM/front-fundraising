@@ -42,8 +42,8 @@ function DonationForm () {
       const response = await postDonation(donationData, token)
 
       if (response) {
-        if (response.status === 200) {
-          navigate('/dashboard')
+        if (response) {
+          navigate('/')
           console.log('Donation submitted successfully')
         } else {
           console.error('Error: Donation request failed with status ' + response.status)
